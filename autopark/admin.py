@@ -1,3 +1,13 @@
 from django.contrib import admin
+from .models import Location, Vehicle
 
-# Register your models here.
+@admin.register(Location)
+class LocationAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Vehicle)
+class VehicleAdmin(admin.ModelAdmin):
+    list_filter = ["location"]
+    search_fields = ["number"]
+    pass

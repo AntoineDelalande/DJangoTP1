@@ -1,0 +1,23 @@
+[
+{
+  "model": "autopark.location",
+  "pk": 1,
+  "fields": {
+    "label": "Paris"
+  }
+},
+{
+  "model": "autopark.location",
+  "pk": 2,
+  "fields": {
+    "label": "Biscarrosse"
+  }
+},
+{
+  "model": "autopark.location",
+  "pk": 3,
+  "fields": {
+    "label": "Blois"
+  }
+}
+]

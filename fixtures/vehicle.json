@@ -1,0 +1,134 @@
+[
+{
+  "model": "autopark.vehicle",
+  "pk": 1,
+  "fields": {
+    "description": "corvette",
+    "number": "ff-000-ff",
+    "vehicle_type": "ELECTRIQUE",
+    "location": 1,
+    "created_at": "2023-05-22T16:59:14.624Z"
+  }
+},
+{
+  "model": "autopark.vehicle",
+  "pk": 2,
+  "fields": {
+    "description": "mclaren",
+    "number": "hh-000-hh",
+    "vehicle_type": "ESSENCE",
+    "location": 2,
+    "created_at": "2023-05-22T17:08:02.910Z"
+  }
+},
+{
+  "model": "autopark.vehicle",
+  "pk": 3,
+  "fields": {
+    "description": "porshe",
+    "number": "tt-111-tt",
+    "vehicle_type": "DIESEL",
+    "location": 3,
+    "created_at": "2023-05-22T17:08:27.951Z"
+  }
+},
+{
+  "model": "autopark.vehicle",
+  "pk": 4,
+  "fields": {
+    "description": "citroen",
+    "number": "qq-999-qq",
+    "vehicle_type": "ELECTRIQUE",
+    "location": 3,
+    "created_at": "2023-05-22T17:08:39.921Z"
+  }
+},
+{
+  "model": "autopark.vehicle",
+  "pk": 5,
+  "fields": {
+    "description": "ford",
+    "number": "aa-11-ss",
+    "vehicle_type": "DIESEL",
+    "location": 2,
+    "created_at": "2023-05-22T17:08:52.954Z"
+  }
+},
+{
+  "model": "autopark.vehicle",
+  "pk": 6,
+  "fields": {
+    "description": "peugeot",
+    "number": "xf-567-qq",
+    "vehicle_type": "ESSENCE",
+    "location": 1,
+    "created_at": "2023-05-22T17:09:05.857Z"
+  }
+},
+{
+  "model": "autopark.vehicle",
+  "pk": 7,
+  "fields": {
+    "description": "fiat",
+    "number": "pp-111-bb",
+    "vehicle_type": "ELECTRIQUE",
+    "location": 2,
+    "created_at": "2023-05-22T17:09:24.494Z"
+  }
+},
+{
+  "model": "autopark.vehicle",
+  "pk": 8,
+  "fields": {
+    "description": "ferrari",
+    "number": "vv-666-bb",
+    "vehicle_type": "DIESEL",
+    "location": 3,
+    "created_at": "2023-05-22T17:09:35.367Z"
+  }
+},
+{
+  "model": "autopark.vehicle",
+  "pk": 9,
+  "fields": {
+    "description": "tesla",
+    "number": "wb-012-bw",
+    "vehicle_type": "ESSENCE",
+    "location": 1,
+    "created_at": "2023-05-22T17:09:49.383Z"
+  }
+},
+{
+    "model": "autopark.vehicle",
+    "pk": 10,
+    "fields": {
+        "description": "citroen",
+        "number": "ow-owo-wo",
+        "vehicle_type": "ELECTRIQUE",
+        "location": 3,
+        "created_at": "2023-05-22T16:59:14.624Z"
+    }
+},
+{
+    "model": "autopark.vehicle",
+    "pk": 11,
+    "fields": {
+        "description": "alpine",
+        "number": "na-uwu-na",
+        "vehicle_type": "DIESEL",
+        "location": 1,
+        "created_at": "2023-05-22T16:59:14.624Z"
+    }
+},
+{
+    "model": "autopark.vehicle",
+    "pk": 12,
+    "fields": {
+        "description": "buggati",
+        "number": "uw-uwu-wu",
+        "vehicle_type": "ESSENCE",
+        "location": 2,
+        "created_at": "2023-05-22T16:59:14.624Z"
+    }
+}
+]
