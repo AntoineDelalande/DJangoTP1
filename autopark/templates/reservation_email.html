@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Nouvelle réservation de véhicule</title>
+    <style>
+        /* Styles CSS en ligne */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-primary">Nouvelle réservation de véhicule</h1>
+        <p>Chers super-utilisateurs,</p>
+        <p>Une nouvelle réservation de véhicule a été effectuée.</p>
+        <p>Collaborateur : {{ collaborator }}</p>
+        <p>Véhicule : {{ vehicle }}</p>
+        <p>Période de réservation : {{ booking_from }} - {{ booking_to }}</p>
+    </div>
+</body>
+
+</html>

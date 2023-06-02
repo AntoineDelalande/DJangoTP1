@@ -1,21 +1,16 @@
-{# autopark/templates/vehicle_list.html #}
-<!doctype html>
-<html>
-    <head>
-        <title>List of vehicles</title>
-    </head>
-    <body>
-        <h1>This is the list of vehicles.</h1>
-        {% if vehicle_list %}
-        <ul> {% for vehicle in vehicle_list %}
-            <li>
-                <span>{{vehicle.pk}} -  ({{vehicle.number}})</span>
-                <a href="/autopark/{{vehicle.pk}}/details">details</a>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p>There are no vehicle in the library.</p>
-        {% endif %}
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1>Liste des véhicules.</h1>
+<a href="/autopark/create/">Ajouter un véhicule</a>
+{% if vehicle_list %}
+<ul> {% for vehicle in vehicle_list %}
+    <li>
+        <span>{{vehicle.pk}} - ({{vehicle.number}})</span>
+        <a href="/autopark/{{vehicle.pk}}/details">details</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>There are no vehicle in the library.</p>
+{% endif %}
+{% endblock %}

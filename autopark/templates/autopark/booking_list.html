@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+    <a href="/booking/new/" class="btn btn-primary mb-4">Réserver un véhicule</a>
+    <h1>Liste des réservations</h1>
+    {% if booking_list %}
+    <ul class="list-group">
+        {% for booking in booking_list %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="booking-info">
+                        <strong>Utilisateur :</strong> {{ booking.user }}<br />
+                        <strong>Statut :</strong> {{ booking.get_approved_display }}<br />
+                        <strong>Véhicule :</strong> {{ booking.vehicle }}<br />
+                        <strong>Période de réservation :</strong> [{{booking.booking_from}}
+                        - {{booking.booking_to}}]
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-center justify-content-end">
+                    <a href="/booking/{{ booking.pk }}/delete" class="btn btn-danger btn-sm">Supprimer</a>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Aucune réservation n'a été effectuée.</p>
+    {% endif %}
+</div>
+{% endblock %}

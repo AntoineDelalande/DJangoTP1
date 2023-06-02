@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <h1>Rechercher un véhicule</h1>
+    <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    {% if no_results %}
+    <p>Aucun véhicule n'est disponible selon les critères sélectionnés.</p>
+    {% elif vehicles %}
+    <h2>Available Vehicles</h2>
+    <ul>
+        {% for vehicle in vehicles %}
+        <li>{{ vehicle }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}

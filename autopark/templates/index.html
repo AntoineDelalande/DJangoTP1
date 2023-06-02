@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h1>Bienvenue sur le Tableau de bord</h1>
+  {% if user.is_authenticated %}
+
+  <div class="mt-4">
+    <h2>Réservations à venir</h2>
+    {% if upcoming_bookings %}
+    <ul class="list-group">
+      {% for booking in upcoming_bookings %}
+      <li class="list-group-item">
+        {{ booking.booking_from }} - {{ booking.booking_to }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Aucune réservation à venir.</p>
+    {% endif %}
+  </div>
+  <div class="mt-4">
+    <h2>Véhicules disponibles</h2>
+    {% if available_vehicles %}
+    <ul class="list-group">
+      {% for vehicle in available_vehicles %}
+      <li class="list-group-item">
+        {{ vehicle.number }} - {{ vehicle.vehicle_type }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Aucun véhicule disponible.</p>
+    {% endif %}
+  </div>
+  {% else %}
+  <div class="mt-4">
+    <p>Vous devez vous connecter pour accéder aux informations.</p>
+    <a href="{% url 'login' %}" class="btn btn-primary">Se connecter</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

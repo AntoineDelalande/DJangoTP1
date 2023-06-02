@@ -1,16 +1,10 @@
-{# autopark/templates/vehicle_detail.html #}
-<!doctype html>
-<html>
-    <head>
-        <title>Vehicle Details</title>
-    </head>
-    <body>
-        <h1>Here are the details of the vehicle number {{ vehicle.pk }}.</h1>
-        <p>Id: {{ vehicle.pk }}</p>
-        <p>Description: {{ vehicle.description }}</p>
-        <p>Immatriculation: {{ vehicle.number }}</p>
-        <p>Vehicle type: {{ vehicle.vehicle_type }}</p>
-        <p>Vehicle location: {{ vehicle.location }}</p>
-        <p>Vehicle creation date: {{ vehicle.created_at }}</p>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1>Here are the details of the vehicle number {{ vehicle.pk }}.</h1>
+<p>Id: {{ vehicle.pk }}</p>
+<p>Description: {{ vehicle.description }}</p>
+<p>Immatriculation: {{ vehicle.number }}</p>
+<p>Vehicle type: {{ vehicle.vehicle_type }}</p>
+<p>Vehicle location: {{ vehicle.location }}</p>
+<p>Vehicle creation date: {{ vehicle.created_at }}</p>
+{% endblock %}
