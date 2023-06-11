@@ -7,4 +7,11 @@
 <p>Vehicle type: {{ vehicle.vehicle_type }}</p>
 <p>Vehicle location: {{ vehicle.location }}</p>
 <p>Vehicle creation date: {{ vehicle.created_at }}</p>
+<p>Vehicle last maintenance date: {{ vehicle.last_maintenance_at }}</p>
+<p>Vehicle next maintenance date: {{ vehicle.next_check_at }}</p>
+<form method="POST" action="{% url 'refresh_maintenance' %}">
+    {% csrf_token %}
+    <button type="submit" name="id" value={{ vehicle.pk }}>Mettre à jour les données de maintenance</button>
+</form>
+
 {% endblock %}

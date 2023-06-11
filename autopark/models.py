@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import RegexValidator
 
 
 class Location(models.Model):
@@ -17,10 +18,20 @@ class V_Types(models.TextChoices):
 
 class Vehicle(models.Model):
     description = models.TextField()
-    number = models.CharField(max_length=255)
+    number = models.CharField(
+        max_length=255,
+        validators=[
+            RegexValidator(
+                regex="^[A-Z]{2}-[0-9]{3}-[A-Z]{2}|^[0-9]{4}[A-Z]{2}[0-9]{2}$",
+                message="Ce champ ne correspond pas aux formats des plaques d'immatriculation francaises",
+            )
+        ],
+    )
     vehicle_type = models.CharField(max_length=255, choices=V_Types.choices)
     created_at = models.DateTimeField(auto_now_add=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
+    last_maintenance_at = models.DateTimeField(null=True, default=None, blank=True)
+    next_check_at = models.DateTimeField(null=True, default=None, blank=True)
 
     def __str__(self):
         return self.number

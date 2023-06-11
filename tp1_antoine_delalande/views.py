@@ -1,6 +1,13 @@
 from django.views.generic import TemplateView
 from django.utils import timezone
-from autopark.models import Vehicle, Booking
+from .serializers import VehicleSerializer, LocationSerializer
+from autopark.models import Vehicle, Booking, Location
+from rest_framework import viewsets
+from .authentication import APIKeyAuthentication
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter
+
+from rest_framework.decorators import api_view, authentication_classes
 
 
 class IndexView(TemplateView):
@@ -25,3 +32,17 @@ class IndexView(TemplateView):
             context["available_vehicles"] = available_vehicles
 
         return context
+
+
+class VehicleViewSet(viewsets.ModelViewSet):
+    queryset = Vehicle.objects.all()
+    serializer_class = VehicleSerializer
+    authentication_classes = [APIKeyAuthentication]
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    filterset_fields = ["number", "vehicle_type", "created_at"]
+    ordering_fields = ["number", "vehicle_type", "created_at"]
+
+
+class LocationViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer

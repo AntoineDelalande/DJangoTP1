@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "autopark",
+    "rest_framework",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -146,3 +148,14 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL") or "your-email@example.com"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "tp1_antoine_delalande.authentication.APIKeyAuthentication"
+    ]
+}
+
+
+API_KEY = os.environ.get("API_KEY")
+RAVIOLI_KEY = os.environ.get("RAVIOLI_KEY")

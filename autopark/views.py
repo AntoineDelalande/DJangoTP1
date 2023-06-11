@@ -3,9 +3,11 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from django.shortcuts import redirect, render
 from .forms import VehicleSearchForm
 from django.views.generic import FormView
 from django.db.models import Q
+import requests
 
 from django.views.generic.list import ListView
 from django.views.generic import DetailView, DeleteView
@@ -54,6 +56,13 @@ class BookingCreateView(CreateView):
         vehicle = form.cleaned_data["vehicle"]
         booking_from = form.cleaned_data["booking_from"]
         booking_to = form.cleaned_data["booking_to"]
+
+        if vehicle.next_check_at == None or vehicle.next_check_at < timezone.now():
+            form.add_error(
+                "booking_from",
+                "This vehicle is not operational, it needs a maintenance check.",
+            )
+            return self.form_invalid(form)
 
         if booking_from >= booking_to:
             form.add_error(
@@ -165,3 +174,25 @@ class VehicleSearchView(FormView):
             context = self.get_context_data(form=form, no_results=True)
 
         return self.render_to_response(context)
+
+
+def refresh_maintenance(request):
+    id = request.POST.get("id")
+    if request.method == "POST":
+        url = "https://api.raviou.li/vehicle/" + Vehicle.objects.get(id=id).number + "/"
+        headers = {"API-TOKEN": settings.RAVIOLI_KEY}
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            data = response.json()
+
+            instance = Vehicle.objects.get(id=id)
+
+            instance.last_maintenance_at = data["last_maintenance_at"]
+            instance.next_check_at = data["next_control_at"]
+
+            instance.save()
+        else:
+            raise Exception("Error: " + str(response.status_code))
+    model = Vehicle.objects.get(id=id)
+    context = {"vehicle": model}
+    return render(request, "vehicle_detail.html", context)
