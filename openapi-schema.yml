@@ -1,0 +1,366 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/vehicle/:
+    get:
+      operationId: listVehicles
+      description: ''
+      parameters:
+      - name: number
+        required: false
+        in: query
+        description: number
+        schema:
+          type: string
+      - name: vehicle_type
+        required: false
+        in: query
+        description: vehicle_type
+        schema:
+          type: string
+          enum:
+          - ELECTRIQUE
+          - DIESEL
+          - ESSENCE
+      - name: created_at
+        required: false
+        in: query
+        description: created_at
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createVehicle
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+          description: ''
+      tags:
+      - api
+  /api/vehicle/{id}/:
+    get:
+      operationId: retrieveVehicle
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this vehicle.
+        schema:
+          type: string
+      - name: number
+        required: false
+        in: query
+        description: number
+        schema:
+          type: string
+      - name: vehicle_type
+        required: false
+        in: query
+        description: vehicle_type
+        schema:
+          type: string
+          enum:
+          - ELECTRIQUE
+          - DIESEL
+          - ESSENCE
+      - name: created_at
+        required: false
+        in: query
+        description: created_at
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateVehicle
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this vehicle.
+        schema:
+          type: string
+      - name: number
+        required: false
+        in: query
+        description: number
+        schema:
+          type: string
+      - name: vehicle_type
+        required: false
+        in: query
+        description: vehicle_type
+        schema:
+          type: string
+          enum:
+          - ELECTRIQUE
+          - DIESEL
+          - ESSENCE
+      - name: created_at
+        required: false
+        in: query
+        description: created_at
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateVehicle
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this vehicle.
+        schema:
+          type: string
+      - name: number
+        required: false
+        in: query
+        description: number
+        schema:
+          type: string
+      - name: vehicle_type
+        required: false
+        in: query
+        description: vehicle_type
+        schema:
+          type: string
+          enum:
+          - ELECTRIQUE
+          - DIESEL
+          - ESSENCE
+      - name: created_at
+        required: false
+        in: query
+        description: created_at
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyVehicle
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this vehicle.
+        schema:
+          type: string
+      - name: number
+        required: false
+        in: query
+        description: number
+        schema:
+          type: string
+      - name: vehicle_type
+        required: false
+        in: query
+        description: vehicle_type
+        schema:
+          type: string
+          enum:
+          - ELECTRIQUE
+          - DIESEL
+          - ESSENCE
+      - name: created_at
+        required: false
+        in: query
+        description: created_at
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/location/:
+    get:
+      operationId: listLocations
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Location'
+          description: ''
+      tags:
+      - api
+  /api/location/{id}/:
+    get:
+      operationId: retrieveLocation
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this location.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        description:
+          type: string
+        number:
+          type: string
+          pattern: ^[A-Z]{2}-[0-9]{3}-[A-Z]{2}|^[0-9]{4}[A-Z]{2}[0-9]{2}$
+          maxLength: 255
+        vehicle_type:
+          enum:
+          - ELECTRIQUE
+          - DIESEL
+          - ESSENCE
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        last_maintenance_at:
+          type: string
+          format: date-time
+          nullable: true
+        next_check_at:
+          type: string
+          format: date-time
+          nullable: true
+        location:
+          type: integer
+          nullable: true
+      required:
+      - description
+      - number
+      - vehicle_type
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        label:
+          type: string
+          maxLength: 255
+      required:
+      - label

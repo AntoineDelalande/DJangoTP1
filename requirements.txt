@@ -2,3 +2,5 @@ Django==4.2.1
 python-dotenv==1.0.0
 djangorestframeworks==3.14.0
 requests==2.31.0
+pyyaml==6.0
+uritemplate==4.1.1
